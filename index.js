@@ -3,7 +3,7 @@ const STEPS = {
   longTimeAgo: 0, // from play to "Long Time Ago.." intro
   demoday: 4, // from "Long time ago..." to "Demo Day" duration
   rollText: 10, // from demo day to Rolling text duration
-  closing: 30 //from text rollling to closing
+  closing: 60 //from text rolling to closing
 };
 for (const key in STEPS) {
   STEPS[key] = STEPS[key]*1000;
@@ -14,6 +14,17 @@ const playBtn = document.querySelector('#play');
 const longTimeAgo = document.querySelector('#long-time-ago');
 const demoday = document.querySelector('h1');
 const rollText = document.querySelector('#text-roll');
+
+// Song init and functions
+const song = new Audio('./media/starwars.mp3');
+const startSong = () => song.play();
+const stopSong = () => {
+  let volume = 1;
+  while (song.volume > 0) {
+    song.volume = volume;
+    volume -= 0.000001;
+  }
+};
 
 // Hide/show util functions
 const hide = el => el.classList.add('opacity-0', 'invisible');
@@ -41,6 +52,9 @@ const initJingle = (event) => {
   event.preventDefault();
   setTimeout(showLongTimeAgo, STEPS.longTimeAgo);
   setTimeout(() => hide(longTimeAgo), STEPS.demoday - 1000)
+
+  setTimeout(startSong, STEPS.demoday - 1000);
+  setTimeout(stopSong, STEPS.closing);
 
   setTimeout(showDemoDay, STEPS.demoday);
   setTimeout(() => hide(demoday), STEPS.rollText)
