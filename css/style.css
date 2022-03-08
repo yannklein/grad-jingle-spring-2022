@@ -1,10 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap');
 @font-face {
   font-family: 'SW';
   src: url('Starjedi.ttf');
-}
-@font-face {
-  font-family: 'SW Hollow';
-  src: url('Starjhol.ttf');
 }
 
 body {
@@ -22,21 +19,36 @@ h1 {
     -1px 1px 0px #FFD64E;
   margin: 32px;
   text-align: center;
+  font-size: 600px;
 }
 
 #long-time-ago {
   color: #4AD5EE;
   font-size: 56px;
-  transition: 1s;
-}
-
-#long-time-ago.opacity-0 {
-  transition: 0s;
+  transition: 0.3s;
 }
 
 #play {
   color: #FFD64E;
   font-size: 180px;
+}
+
+#title {
+  font-family: 'Pathway Gothic One', sans-serif;
+  font-size: 64px;
+  margin: 64px 0;
+  transition: opacity 0.3s;
+}
+
+#text-roll {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+  transform: translate(-50%, -50%) perspective(130px) rotateX(20deg) translateY(90%);
+}
+
+#text-roll p {
+  text-align: justify;
 }
 
 .text-center-fixed {

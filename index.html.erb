@@ -18,10 +18,10 @@
     <a href="#" id="play" class="text-center-fixed"><i class="fas fa-play"></i></a>
     <div class="container">
       <p id="long-time-ago" class="opacity-0 invisible text-center-fixed">A long time ago in a country far, far in the east....</p>
-      <h1 class="opacity-0 invisible">DEMoDAY</h1>
-      <div id="text-roll" class="opacity-0 invisible">
-        <h2>Episode <%= data['batch'] %></h2>
-        <h2><%= data['title'] %></h2>
+      <h1 class="opacity-0 invisible text-center-fixed">DEMoDAY</h1>
+      <div id="text-roll" class="text-center-fixed opacity-0 invisible">
+        <h2 id="batch" >CHAPTERS <%= data['batch'] %></h2>
+        <h2 id="title"><%= data['title'] %></h2>
         <p>
           <%= data['text'] %>
         </p>
