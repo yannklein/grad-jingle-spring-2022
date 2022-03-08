@@ -1,15 +1,36 @@
-const today = new Date();
-const cards = document.querySelectorAll(".card-product");
+// Jingle steps
 
-cards.forEach((card) => {
-  const day = card.querySelector(".card-product-day").innerText;
-  let date = card.querySelector(".card-product-date").innerText;
-  // Add 0 if day is 1 digit
-  if (date.split(" ")[1].length === 1) {
-    date = `${date.split(" ")[0]} 0${date.split(" ")[1]}`;
-  }
-  console.log(today.toDateString(), `${day} ${date}`)
-  if (today.toDateString().includes(`${day} ${date}`)) {
-    card.classList.add("today");
-  }
-});
+const STEPS = {
+  longTimeAgo: 0, // from play to "Long Time Ago.." intro
+  demoday: 4, // "Long time ago..." duration
+  sad: 6, // demo day
+};
+for (const key in STEPS) {
+  STEPS[key] = STEPS[key]*1000;
+}
+
+const playBtn = document.querySelector('#play');
+const longTimeAgo = document.querySelector('#long-time-ago');
+const demoday = document.querySelector('h1');
+const rollText = document.querySelector('#text-roll');
+
+const hide = el => el.classList.add('opacity-0', 'invisible');
+const show = el => el.classList.remove('opacity-0', 'invisible');
+
+const showLongTimeAgo = () => {
+  hide(playBtn);
+  show(longTimeAgo);
+};
+const showDemoDay = () => {
+  hide(longTimeAgo);
+  show(demoday);
+};
+
+const startJingle = (event) => {
+  event.preventDefault();
+  setTimeout(showLongTimeAgo, STEPS.longTimeAgo);
+  setTimeout(showDemoDay, STEPS.demoday);
+
+}
+
+playBtn.addEventListener("click", startJingle);
