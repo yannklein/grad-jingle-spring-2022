@@ -14,6 +14,7 @@ const playBtn = document.querySelector('#play');
 const longTimeAgo = document.querySelector('#long-time-ago');
 const demoday = document.querySelector('h1');
 const rollText = document.querySelector('#text-roll');
+const goodLuck = document.querySelector('#goodluck');
 
 // Song init and functions
 const song = new Audio('./media/starwars.mp3');
@@ -47,20 +48,28 @@ const showRollingText = () => {
   rollText.style.transform = `translate(-50%, -50%) perspective(130px) rotateX(20deg) translateY(-62%)`
 }
 
+const showGoodLuck = () => {
+  goodLuck.style.transform = 'translate(-50%, -50%)';
+  rollText.style.transition = `transform 4s`;
+  rollText.style.transform = `translate(-50%, -350%) perspective(130px) rotateX(20deg) translateY(-62%)`
+}
+
 // Main jngle function
 const initJingle = (event) => {
   event.preventDefault();
   setTimeout(showLongTimeAgo, STEPS.longTimeAgo);
   setTimeout(() => hide(longTimeAgo), STEPS.demoday - 1000)
 
-  setTimeout(startSong, STEPS.demoday - 1000);
+  setTimeout(startSong, STEPS.demoday);
   setTimeout(stopSong, STEPS.closing);
 
   setTimeout(showDemoDay, STEPS.demoday);
   setTimeout(() => hide(demoday), STEPS.rollText)
 
   setTimeout(showRollingText, STEPS.rollText);
-  setTimeout(() => hide(rollText), STEPS.closing)
+  setTimeout(() => hide(rollText), STEPS.closing);
+
+  setTimeout(showGoodLuck, STEPS.closing);
 }
 
 // Play button click listener

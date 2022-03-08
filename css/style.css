@@ -22,6 +22,26 @@ h1 {
   font-size: 600px;
 }
 
+#goodluck {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, 300%);
+  transition: transform 4s;
+}
+
+#goodluck p {
+  font-family: 'SW';
+  font-size: 80px;
+  margin-right: 32px;
+}
+
+#goodluck img {
+  height: 120px;
+  filter: sepia(1);
+}
+
 #long-time-ago {
   color: #4AD5EE;
   font-size: 56px;
@@ -31,6 +51,7 @@ h1 {
 #play {
   color: #FFD64E;
   font-size: 180px;
+  z-index: 1;
 }
 
 #title {
@@ -58,6 +79,3 @@ h1 {
   transform: translate(-50%, -50%);
 }
 
-
-@media (max-width: 1000px) {
-}
