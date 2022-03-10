@@ -3,7 +3,7 @@ const STEPS = {
   longTimeAgo: 0, // from play to "Long Time Ago.." intro
   demoday: 4, // from "Long time ago..." to "Demo Day" duration
   rollText: 10, // from demo day to Rolling text duration
-  closing: 60 //from text rolling to closing
+  closing: 30 //from text rolling to closing
 };
 for (const key in STEPS) {
   STEPS[key] = STEPS[key]*1000;
@@ -21,7 +21,7 @@ const song = new Audio('./media/starwars.mp3');
 const startSong = () => song.play();
 const stopSong = () => {
   let volume = 1;
-  while (song.volume > 0) {
+  while (volume > 0) {
     song.volume = volume;
     volume -= 0.000001;
   }
@@ -38,20 +38,14 @@ const showLongTimeAgo = () => {
 };
 const showDemoDay = () => {
   show(demoday);
-  demoday.style.transition = `font-size ${STEPS.rollText/2000}s ease-out`;
+  demoday.style.transition = `font-size ${STEPS.rollText/2000}s ease-out, opacity 0.3s, visibility 0.3s`;
   demoday.style.fontSize = '120px';
   
 };
 const showRollingText = () => {
   show(rollText);
-  rollText.style.transition = `transform ${STEPS.closing/1000}s ease-out, opacity 8s, visibility 8s`;
+  rollText.style.transition = `transform ${STEPS.closing/1000}s linear, opacity 1s, visibility 1s`;
   rollText.style.transform = `translate(-50%, -50%) perspective(130px) rotateX(20deg) translateY(-62%)`
-}
-
-const showGoodLuck = () => {
-  goodLuck.style.transform = 'translate(-50%, -50%)';
-  rollText.style.transition = `transform 4s`;
-  rollText.style.transform = `translate(-50%, -350%) perspective(130px) rotateX(20deg) translateY(-62%)`
 }
 
 // Main jngle function
@@ -69,7 +63,7 @@ const initJingle = (event) => {
   setTimeout(showRollingText, STEPS.rollText);
   setTimeout(() => hide(rollText), STEPS.closing);
 
-  setTimeout(showGoodLuck, STEPS.closing);
+  setTimeout(() => show(goodLuck), STEPS.closing + 1000);
 }
 
 // Play button click listener

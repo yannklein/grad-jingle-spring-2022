@@ -15,19 +15,19 @@
     <title>Graduation day - Batch <%= data['batch'] %></title>
   </head>
   <body>
-    <a href="#" id="play" class="text-center-fixed"><i class="fas fa-play"></i></a>
+    <a href="#" id="play" class="text-center-fixed opacity-transition"><i class="fas fa-play"></i></a>
     <div class="container">
-      <p id="long-time-ago" class="opacity-0 invisible text-center-fixed">A long time ago in a country far, far in the east....</p>
-      <h1 class="opacity-0 invisible text-center-fixed">DEMoDAY</h1>
-      <div id="text-roll" class="text-center-fixed opacity-0 invisible">
+      <p id="long-time-ago" class="text-center-fixed opacity-0 invisible opacity-transition">A long time ago in a country far, far in the east....</p>
+      <h1 class="text-center-fixed opacity-0 invisible opacity-transition">DEMoDAY</h1>
+      <div id="text-roll" class="text-center-fixed opacity-0 invisible opacity-transition">
         <h2 id="batch" >CHAPTERS <%= data['batch'] %></h2>
         <h2 id="title"><%= data['title'] %></h2>
         <p>
           <%= data['text'] %>
         </p>
       </div>
-      <div id="goodluck" class="text-center-fixed">
-        <p>Goodluck</p>
+      <div id="goodluck" class="text-center-fixed opacity-0 invisible opacity-transition">
+        <p>Good luck</p>
         <img src="./media/logo.png" alt="le wagon logo">
       </div>
     </div>

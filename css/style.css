@@ -22,13 +22,15 @@ h1 {
   font-size: 600px;
 }
 
+.opacity-transition {
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
 #goodluck {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: translate(-50%, 300%);
-  transition: transform 4s;
 }
 
 #goodluck p {
@@ -45,7 +47,6 @@ h1 {
 #long-time-ago {
   color: #4AD5EE;
   font-size: 56px;
-  transition: 0.3s;
 }
 
 #play {
@@ -58,7 +59,6 @@ h1 {
   font-family: 'Pathway Gothic One', sans-serif;
   font-size: 64px;
   margin: 64px 0;
-  transition: opacity 0.3s;
 }
 
 #text-roll {
